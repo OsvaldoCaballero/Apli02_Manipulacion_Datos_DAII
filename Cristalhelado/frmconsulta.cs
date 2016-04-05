@@ -60,5 +60,10 @@ namespace Cristalhelado
 
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }//fin de clase
 }

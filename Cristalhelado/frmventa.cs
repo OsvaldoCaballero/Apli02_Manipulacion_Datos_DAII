@@ -47,14 +47,12 @@ namespace Cristalhelado
 
         private void btnproducto_Click(object sender, EventArgs e)
         {
-            
             try
             {
-
                 producto.Enqueue(cmbproducto.Text);
                 cantidad.Enqueue(txtcantidad.Text);
 
-                lstproductos.Items.Add(cmbproducto.Text);
+                lstproductos.Items.Add("   " + cmbproducto.Text + "                                      " + lbprecio.Text);
             }
             catch (Exception)
             {
@@ -62,7 +60,6 @@ namespace Cristalhelado
             }
 
             txtcantidad.Clear();
-
         }
 
         private void btnregistrar_Click(object sender, EventArgs e)
@@ -72,7 +69,7 @@ namespace Cristalhelado
                 string cadena = "";
                 string cadena2 = "";
 
-                if (MessageBox.Show("Deseas agregar un nuevo registro", "Cristal Helado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                if (MessageBox.Show("¿Deseas agregar un nuevo registro?", "Cristal Helado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                     DialogResult.Yes)
                 {
                     try
@@ -119,6 +116,7 @@ namespace Cristalhelado
             if (dt != null)
             {
                 lbventa.Text = dt["tipo"].ToString();
+                lbprecio.Text = dt["precio"].ToString();
             }
         }
     }//fin de clase

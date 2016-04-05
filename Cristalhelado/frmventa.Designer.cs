@@ -46,6 +46,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.lbprecio = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +83,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.lbprecio);
             this.groupBox1.Controls.Add(this.lbventa);
             this.groupBox1.Controls.Add(this.txtcantidad);
             this.groupBox1.Controls.Add(this.label4);
@@ -88,7 +95,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(20, 93);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(403, 166);
+            this.groupBox1.Size = new System.Drawing.Size(403, 243);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos de la venta";
@@ -121,14 +128,14 @@
             // lstproductos
             // 
             this.lstproductos.FormattingEnabled = true;
-            this.lstproductos.Location = new System.Drawing.Point(253, 67);
+            this.lstproductos.Location = new System.Drawing.Point(210, 106);
             this.lstproductos.Name = "lstproductos";
-            this.lstproductos.Size = new System.Drawing.Size(132, 82);
+            this.lstproductos.Size = new System.Drawing.Size(175, 121);
             this.lstproductos.TabIndex = 5;
             // 
             // btnproducto
             // 
-            this.btnproducto.Location = new System.Drawing.Point(96, 117);
+            this.btnproducto.Location = new System.Drawing.Point(25, 120);
             this.btnproducto.Name = "btnproducto";
             this.btnproducto.Size = new System.Drawing.Size(139, 23);
             this.btnproducto.TabIndex = 4;
@@ -164,7 +171,7 @@
             // 
             // btnregistrar
             // 
-            this.btnregistrar.Location = new System.Drawing.Point(277, 275);
+            this.btnregistrar.Location = new System.Drawing.Point(277, 352);
             this.btnregistrar.Name = "btnregistrar";
             this.btnregistrar.Size = new System.Drawing.Size(128, 23);
             this.btnregistrar.TabIndex = 7;
@@ -178,7 +185,7 @@
             this.cmbfactura.Items.AddRange(new object[] {
             "si",
             "no"});
-            this.cmbfactura.Location = new System.Drawing.Point(128, 275);
+            this.cmbfactura.Location = new System.Drawing.Point(128, 352);
             this.cmbfactura.Name = "cmbfactura";
             this.cmbfactura.Size = new System.Drawing.Size(121, 21);
             this.cmbfactura.TabIndex = 9;
@@ -186,7 +193,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 278);
+            this.label5.Location = new System.Drawing.Point(38, 355);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 8;
@@ -211,12 +218,49 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "CRISTAL HELADO";
             // 
+            // lbprecio
+            // 
+            this.lbprecio.AutoSize = true;
+            this.lbprecio.Location = new System.Drawing.Point(352, 39);
+            this.lbprecio.Name = "lbprecio";
+            this.lbprecio.Size = new System.Drawing.Size(13, 13);
+            this.lbprecio.TabIndex = 12;
+            this.lbprecio.Text = "--";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(207, 83);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Cantidad";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(313, 83);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Precio unitario";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(607, 352);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Imprimir Factura";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // frmventa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(885, 309);
+            this.ClientSize = new System.Drawing.Size(885, 455);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbfactura);
@@ -257,5 +301,9 @@
         private System.Windows.Forms.Label lbventa;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbprecio;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -1,0 +1,23 @@
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\bin\Debug\Cristalhelado.exe
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\bin\Debug\Cristalhelado.pdb
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\bin\Debug\MySql.Data.dll
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.csprojResolveAssemblyReference.cache
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.Form1.resources
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.frmconsulta.resources
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.frminsumos.resources
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.frmventa.resources
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.Properties.Resources.resources
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.csproj.GenerateResource.Cache
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.exe
+C:\Users\Aguilar\Documents\blabla\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.pdb
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.exe
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.pdb
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\bin\Debug\Cristalhelado.exe
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\bin\Debug\Cristalhelado.pdb
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.csprojResolveAssemblyReference.cache
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.Form1.resources
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.frmconsulta.resources
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.frminsumos.resources
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.frmventa.resources
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.Properties.Resources.resources
+C:\Users\Osvaldo 3A\Desktop\PROYECTO FINAL\Cristalhelado\Cristalhelado\obj\x86\Debug\Cristalhelado.csproj.GenerateResource.Cache

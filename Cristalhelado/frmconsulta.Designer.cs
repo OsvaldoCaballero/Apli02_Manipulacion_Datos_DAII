@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmconsulta));
             this.label1 = new System.Windows.Forms.Label();
             this.cmbconsulta = new System.Windows.Forms.ComboBox();
             this.lbusuario = new System.Windows.Forms.Label();
             this.cmbusuario = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnmostrar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +57,7 @@
             "Ventas con factura",
             "Ventas por empleado",
             "Insumos disponibles"});
-            this.cmbconsulta.Location = new System.Drawing.Point(255, 25);
+            this.cmbconsulta.Location = new System.Drawing.Point(169, 25);
             this.cmbconsulta.Name = "cmbconsulta";
             this.cmbconsulta.Size = new System.Drawing.Size(121, 21);
             this.cmbconsulta.TabIndex = 1;
@@ -73,7 +76,7 @@
             // cmbusuario
             // 
             this.cmbusuario.FormattingEnabled = true;
-            this.cmbusuario.Location = new System.Drawing.Point(255, 66);
+            this.cmbusuario.Location = new System.Drawing.Point(169, 66);
             this.cmbusuario.Name = "cmbusuario";
             this.cmbusuario.Size = new System.Drawing.Size(121, 21);
             this.cmbusuario.TabIndex = 3;
@@ -89,7 +92,7 @@
             // 
             // btnmostrar
             // 
-            this.btnmostrar.Location = new System.Drawing.Point(441, 47);
+            this.btnmostrar.Location = new System.Drawing.Point(309, 43);
             this.btnmostrar.Name = "btnmostrar";
             this.btnmostrar.Size = new System.Drawing.Size(75, 23);
             this.btnmostrar.TabIndex = 5;
@@ -97,11 +100,23 @@
             this.btnmostrar.UseVisualStyleBackColor = true;
             this.btnmostrar.Click += new System.EventHandler(this.btnmostrar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(408, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(171, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmconsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 479);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(630, 292);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnmostrar);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmbusuario);
@@ -109,9 +124,10 @@
             this.Controls.Add(this.cmbconsulta);
             this.Controls.Add(this.label1);
             this.Name = "frmconsulta";
-            this.Text = "frmconsulta";
+            this.Text = "CONSULTAS";
             this.Load += new System.EventHandler(this.frmconsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +141,6 @@
         private System.Windows.Forms.ComboBox cmbusuario;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnmostrar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

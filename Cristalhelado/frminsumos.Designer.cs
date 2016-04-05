@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frminsumos));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,12 +38,14 @@
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.txtcantidad = new System.Windows.Forms.TextBox();
             this.dtpfechainsu = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 63);
+            this.label1.Location = new System.Drawing.Point(25, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
@@ -51,7 +54,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 112);
+            this.label2.Location = new System.Drawing.Point(27, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -60,7 +63,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 154);
+            this.label3.Location = new System.Drawing.Point(27, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 2;
@@ -69,7 +72,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(73, 200);
+            this.label4.Location = new System.Drawing.Point(27, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 3;
@@ -77,7 +80,7 @@
             // 
             // btnagregar
             // 
-            this.btnagregar.Location = new System.Drawing.Point(164, 272);
+            this.btnagregar.Location = new System.Drawing.Point(118, 239);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(117, 23);
             this.btnagregar.TabIndex = 5;
@@ -87,21 +90,21 @@
             // 
             // txtnombre
             // 
-            this.txtnombre.Location = new System.Drawing.Point(218, 60);
+            this.txtnombre.Location = new System.Drawing.Point(172, 27);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(100, 20);
             this.txtnombre.TabIndex = 6;
             // 
             // txtprecio
             // 
-            this.txtprecio.Location = new System.Drawing.Point(218, 151);
+            this.txtprecio.Location = new System.Drawing.Point(172, 118);
             this.txtprecio.Name = "txtprecio";
             this.txtprecio.Size = new System.Drawing.Size(100, 20);
             this.txtprecio.TabIndex = 8;
             // 
             // txtcantidad
             // 
-            this.txtcantidad.Location = new System.Drawing.Point(218, 197);
+            this.txtcantidad.Location = new System.Drawing.Point(172, 164);
             this.txtcantidad.Name = "txtcantidad";
             this.txtcantidad.Size = new System.Drawing.Size(100, 20);
             this.txtcantidad.TabIndex = 9;
@@ -110,16 +113,28 @@
             // 
             this.dtpfechainsu.CustomFormat = "yyyy-MM-dd";
             this.dtpfechainsu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpfechainsu.Location = new System.Drawing.Point(218, 106);
+            this.dtpfechainsu.Location = new System.Drawing.Point(172, 73);
             this.dtpfechainsu.Name = "dtpfechainsu";
             this.dtpfechainsu.Size = new System.Drawing.Size(100, 20);
             this.dtpfechainsu.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(322, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 272);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // frminsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 425);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.ClientSize = new System.Drawing.Size(652, 297);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtpfechainsu);
             this.Controls.Add(this.txtcantidad);
             this.Controls.Add(this.txtprecio);
@@ -130,8 +145,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frminsumos";
-            this.Text = "frminsumos";
+            this.Text = "INSUMOS";
             this.Load += new System.EventHandler(this.frminsumos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +164,6 @@
         private System.Windows.Forms.TextBox txtprecio;
         private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.DateTimePicker dtpfechainsu;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

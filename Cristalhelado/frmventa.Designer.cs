@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmventa));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbtam = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.lbventa = new System.Windows.Forms.Label();
             this.txtcantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,7 +44,10 @@
             this.btnregistrar = new System.Windows.Forms.Button();
             this.cmbfactura = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,8 +79,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lbtam);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.lbventa);
             this.groupBox1.Controls.Add(this.txtcantidad);
             this.groupBox1.Controls.Add(this.label4);
@@ -92,24 +92,6 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos de la venta";
-            // 
-            // lbtam
-            // 
-            this.lbtam.AutoSize = true;
-            this.lbtam.Location = new System.Drawing.Point(340, 41);
-            this.lbtam.Name = "lbtam";
-            this.lbtam.Size = new System.Drawing.Size(13, 13);
-            this.lbtam.TabIndex = 12;
-            this.lbtam.Text = "--";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(278, 39);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Tamano:";
             // 
             // lbventa
             // 
@@ -182,7 +164,7 @@
             // 
             // btnregistrar
             // 
-            this.btnregistrar.Location = new System.Drawing.Point(128, 318);
+            this.btnregistrar.Location = new System.Drawing.Point(277, 275);
             this.btnregistrar.Name = "btnregistrar";
             this.btnregistrar.Size = new System.Drawing.Size(128, 23);
             this.btnregistrar.TabIndex = 7;
@@ -210,12 +192,33 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Factura:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(452, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(421, 283);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(239, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(184, 24);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "CRISTAL HELADO";
+            // 
             // frmventa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(454, 370);
+            this.ClientSize = new System.Drawing.Size(885, 309);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbfactura);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnregistrar);
@@ -229,6 +232,7 @@
             this.Load += new System.EventHandler(this.frmventa_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,8 +254,8 @@
         private System.Windows.Forms.Button btnregistrar;
         private System.Windows.Forms.ComboBox cmbfactura;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbventa;
-        private System.Windows.Forms.Label lbtam;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

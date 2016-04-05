@@ -30,8 +30,6 @@ namespace Cristalhelado
                         cadena = "INSERT INTO insumo (nombre, fecha, precio, cantidad) values ('" + txtnombre.Text +
                             "', '" + dtpfechainsu.Text + "', '" + txtprecio.Text + "', '" + txtcantidad.Text + "')";
 
-                        //cadena2 = "Insert into user values ('" + Convert.ToInt32(txtidusuario.Text) + "', '" + txtuser.Text + "', MD5('" + txtpassword.Text + "'))";
-
                         Datos.Insertar(cadena);
                         MessageBox.Show("Registro agregado");
                         txtnombre.Clear();
@@ -48,7 +46,10 @@ namespace Cristalhelado
             {
                 MessageBox.Show("Debes llenar todos los campos");
             }
+        }
 
+        private void frminsumos_Load(object sender, EventArgs e)
+        {
 
         }
     }//fin de clase

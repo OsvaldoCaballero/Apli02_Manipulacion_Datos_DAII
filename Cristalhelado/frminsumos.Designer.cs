@@ -131,6 +131,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frminsumos";
             this.Text = "frminsumos";
+            this.Load += new System.EventHandler(this.frminsumos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

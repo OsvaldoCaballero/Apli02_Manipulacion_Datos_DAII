@@ -21,7 +21,7 @@ namespace Cristalhelado
 
         }
 
-        private void MostrarFormulario(Form Formulario)//método para mostrar los formularios 
+        private void MostrarFormulario(Form Formulario)
         {
             Formulario.MdiParent = this;
             Formulario.Show();

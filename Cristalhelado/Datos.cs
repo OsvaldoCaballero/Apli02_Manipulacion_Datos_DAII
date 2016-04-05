@@ -17,8 +17,8 @@ namespace Cristalhelado
 
         static Datos()
         {
-            conectar = new MySqlConnection("Server=localhost;Database=cristal;Uid=root"); //Conexión Local
-            //conectar = new MySqlConnection("Server=db4free.net; Database=cristal2; userid=caballero1; pwd=Aplicaciones2; port=3306;");
+            //conectar = new MySqlConnection("Server=localhost;Database=cristal;Uid=root"); //Conexión Local
+            conectar = new MySqlConnection("Server=db4free.net; Database=cristall; userid=osvaldo; pwd=proyectofinal; port=3306;");
             try
             {
                 conectar.Open();

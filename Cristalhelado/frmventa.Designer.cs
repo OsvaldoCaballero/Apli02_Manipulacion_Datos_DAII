@@ -50,6 +50,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +85,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lbprecio);
@@ -95,7 +99,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(20, 93);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(403, 243);
+            this.groupBox1.Size = new System.Drawing.Size(506, 243);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos de la venta";
@@ -128,9 +132,9 @@
             // lstproductos
             // 
             this.lstproductos.FormattingEnabled = true;
-            this.lstproductos.Location = new System.Drawing.Point(210, 106);
+            this.lstproductos.Location = new System.Drawing.Point(170, 106);
             this.lstproductos.Name = "lstproductos";
-            this.lstproductos.Size = new System.Drawing.Size(175, 121);
+            this.lstproductos.Size = new System.Drawing.Size(330, 121);
             this.lstproductos.TabIndex = 5;
             // 
             // btnproducto
@@ -202,9 +206,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(452, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(532, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(421, 283);
+            this.pictureBox1.Size = new System.Drawing.Size(341, 283);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -230,11 +234,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(207, 83);
+            this.label7.Location = new System.Drawing.Point(170, 83);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.Size = new System.Drawing.Size(64, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Cantidad";
+            this.label7.Text = "ID Producto";
             // 
             // label8
             // 
@@ -253,6 +257,25 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Imprimir Factura";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(240, 83);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Cantidad";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(410, 83);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Precio total";
             // 
             // frmventa
             // 
@@ -305,5 +328,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

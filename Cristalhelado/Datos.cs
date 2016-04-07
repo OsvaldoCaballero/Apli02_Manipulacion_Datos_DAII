@@ -145,6 +145,107 @@ namespace Cristalhelado
 
         }
 
+
+
+
+        public static double TotalPagar(int cantidad, string color, int id)
+        {
+            string com;
+            string com1;
+            string com2;
+            double total = 0;
+            int pregan;
+            int presfe;
+            int precar;
+
+            com = " Select * From insumo where nombre = '" + color + "' ";
+            com1 = " Select * From insumo where nombre = 'gancho' ";
+            com2 = " Select * From insumo where nombre = 'carton' ";
+
+            if (id == 1)
+            {
+                pregan = Convert.ToInt32(extrae(com1));
+                presfe = Convert.ToInt32(extrae(com));
+                total = ((presfe / 300) + (pregan / 700)) * cantidad;
+            }
+            else
+                if (id == 2)
+                {
+                    pregan = Convert.ToInt32(extrae(com1));
+                    presfe = Convert.ToInt32(extrae(com));
+                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                }
+                else
+                    if (id == 3)
+                    {
+                        pregan = Convert.ToInt32(extrae(com1));
+                        presfe = Convert.ToInt32(extrae(com));
+                        precar = Convert.ToInt32(extrae(com2));
+                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                    }
+                    else
+                        if (id == 4)
+                        {
+                            pregan = Convert.ToInt32(extrae(com1));
+                            presfe = Convert.ToInt32(extrae(com));
+                            precar = Convert.ToInt32(extrae(com2));
+                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                        }
+                        else
+                            if (id == 5)
+                            {
+                                pregan = Convert.ToInt32(extrae(com1));
+                                presfe = Convert.ToInt32(extrae(com));
+                                precar = Convert.ToInt32(extrae(com2));
+                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                            }
+                            else
+                                if (id == 6)
+                                {
+                                    pregan = Convert.ToInt32(extrae(com1));
+                                    presfe = Convert.ToInt32(extrae(com));
+                                    precar = Convert.ToInt32(extrae(com2));
+                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                }
+                                else
+                                    if (id == 7)
+                                    {
+                                        pregan = Convert.ToInt32(extrae(com1));
+                                        presfe = Convert.ToInt32(extrae(com));
+                                        precar = Convert.ToInt32(extrae(com2));
+                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                    }
+                                    else
+                                        if (id == 8)
+                                        {
+                                            pregan = Convert.ToInt32(extrae(com1));
+                                            presfe = Convert.ToInt32(extrae(com));
+                                            precar = Convert.ToInt32(extrae(com2));
+                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                        }
+            return total;
+        }
+
+        public static string extrae(string cadena)
+        {
+            MySqlDataAdapter da = construye_adapter(cadena);
+
+            DataRow dt = extrae_registro(da, "insumo");
+            string idv1 = "";
+
+            if (dt != null)
+            {
+                idv1 = dt["precio"].ToString();
+            }
+            return idv1;
+        }
+
+
+
+
+
+
+
         public static MySqlDataReader construye_reader(string cadena)
         {
             MySqlCommand cadena_sql;

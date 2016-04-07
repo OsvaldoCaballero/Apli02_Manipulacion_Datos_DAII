@@ -15,6 +15,7 @@ namespace Cristalhelado
     {
         Queue producto = new Queue();
         Queue cantidad = new Queue();
+        
         int idv;
         string idv1;
 
@@ -40,19 +41,22 @@ namespace Cristalhelado
                 idv1= dt["id"].ToString();
             }
 
-            
             idv = Convert.ToInt32(idv1) + 1;
             MessageBox.Show(idv.ToString());
         }
 
         private void btnproducto_Click(object sender, EventArgs e)
         {
-            try
+            //label28.Text = objeto.total(1).ToString();
+
+            //lbprecio.Text = Datos.TotalPagar(int cantidad, string color, int id).ToString();
+            lbprecio.Text = (Datos.TotalPagar(cantidad, color, id).ToString());
+            try 
             {
+
                 producto.Enqueue(cmbproducto.Text);
                 cantidad.Enqueue(txtcantidad.Text);
-
-                lstproductos.Items.Add("   " + cmbproducto.Text + "                                      " + lbprecio.Text);
+                lstproductos.Items.Add(cmbproducto.Text + txtcantidad.Text + lbprecio.Text);
             }
             catch (Exception)
             {
@@ -118,6 +122,11 @@ namespace Cristalhelado
                 lbventa.Text = dt["tipo"].ToString();
                 lbprecio.Text = dt["precio"].ToString();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }//fin de clase
 }

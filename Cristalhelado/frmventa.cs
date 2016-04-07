@@ -44,7 +44,7 @@ namespace Cristalhelado
             }
 
             idv = Convert.ToInt32(idv1) + 1;
-            MessageBox.Show(idv.ToString());
+            MessageBox.Show("Número de venta  "+idv.ToString());
         }
 
         private void btnproducto_Click(object sender, EventArgs e)
@@ -52,12 +52,13 @@ namespace Cristalhelado
             double total = Datos.TotalPagar(Convert.ToInt32(txtcantidad.Text), cmbcolor.Text, Convert.ToInt32(cmbproducto.Text));
             acumuladorTotal += total;
             lbprecio.Text = total.ToString();
+            lblMontoTotal.Text = acumuladorTotal.ToString();
             try 
             {
 
                 producto.Enqueue(cmbproducto.Text);
                 cantidad.Enqueue(txtcantidad.Text);
-                lstproductos.Items.Add(cmbproducto.Text.ToString() + "/t" + total.ToString());
+                lstproductos.Items.Add("    " + cmbproducto.Text.ToString() + "                                   " + txtcantidad.Text.ToString() + "               " + total.ToString());
             }
             catch (Exception)
             {

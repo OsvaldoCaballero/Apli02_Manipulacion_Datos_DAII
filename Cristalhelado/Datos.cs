@@ -12,13 +12,11 @@ namespace Cristalhelado
     {
         private static MySqlConnection conectar;
         private static MySqlDataReader dr;
-        public static string user;
-        public static string pass;
 
         static Datos()
         {
-            conectar = new MySqlConnection("Server=localhost;Database=cristal;Uid=root"); //Conexión Local
-            //conectar = new MySqlConnection("Server=db4free.net; Database=cristall; userid=osvaldo; pwd=proyectofinal; port=3306;");
+            //conectar = new MySqlConnection("Server=localhost;Database=cristal;Uid=root"); //Conexión Local
+            conectar = new MySqlConnection("Server=db4free.net; Database=cristall; userid=osvaldo; pwd=proyectofinal; port=3306;");
             try
             {
                 conectar.Open();
@@ -28,30 +26,6 @@ namespace Cristalhelado
             {
                 MessageBox.Show("No se pudo conectar a la base de datos " + ex);
             }
-        }
-
-        public static bool Login(string nombre, string password)
-        {
-            string consulta = "SELECT count(*) FROM user WHERE user = @Nombre AND password = MD5(@Password)";
-            MySqlCommand comando = new MySqlCommand(consulta, conectar);
-            comando.Parameters.Add("@Nombre", MySqlDbType.VarChar);
-            comando.Parameters["@Nombre"].Value = nombre;
-            comando.Parameters.Add("@Password", MySqlDbType.VarChar);
-            comando.Parameters["@Password"].Value = password;
-            int resultado = Convert.ToInt32(comando.ExecuteScalar());
-
-            if (resultado == 1)
-                return true;
-            else
-                return false;
-        }
-
-        public static string Privilegios()
-        {
-            string consulta = "SELECT us.tipo FROM user u inner join usuario us on u.id_usuario = us.id_usuario WHERE u.user = '" + user + "' AND u.password = MD5('" + pass + "')";
-            MySqlCommand comando = new MySqlCommand(consulta, conectar);
-            string resp = comando.ExecuteScalar().ToString();
-            return resp;
         }
 
         public static void Insertar(string cadena)
@@ -66,34 +40,12 @@ namespace Cristalhelado
             comando.ExecuteNonQuery();
         }
 
-        public static void Delete(string consulta)
-        {
-            MySqlCommand comando = new MySqlCommand(consulta, conectar);
-            comando.ExecuteNonQuery();
-        }
-
         public static void BuscarDato(string busqueda, DataGridView dg)
         {
             DataTable tabla = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(busqueda, conectar);
             da.Fill(tabla);
             dg.DataSource = tabla;
-        }
-
-        public static bool Validar(int id, string password)
-        {
-            string consulta = "SELECT count(*) FROM user WHERE id_usuario = @Id AND password = MD5(@Password)";
-            MySqlCommand comando = new MySqlCommand(consulta, conectar);
-            comando.Parameters.Add("@Id", MySqlDbType.Int32);
-            comando.Parameters["@Id"].Value = id;
-            comando.Parameters.Add("@Password", MySqlDbType.VarChar);
-            comando.Parameters["@Password"].Value = password;
-            int resultado = Convert.ToInt32(comando.ExecuteScalar());
-
-            if (resultado == 1)
-                return true;
-            else
-                return false;
         }
 
         public static void ObtenerTabla(string consulta, DataGridView dg)
@@ -154,6 +106,8 @@ namespace Cristalhelado
             string com1;
             string com2;
             double total = 0;
+            double iva = 0;
+            double totalidad = 0;
             double pregan;
             double presfe;
             double precar;
@@ -166,8 +120,10 @@ namespace Cristalhelado
             {
                 pregan = Convert.ToDouble(extrae(com1));
                 presfe = Convert.ToDouble(extrae(com));
-                total = ((presfe / 300) + (pregan / 700)) * cantidad;
-                return total;
+                total = ((presfe / 300) + (pregan / 700)) *cantidad;
+                iva = total * .30;
+                totalidad = total + iva;
+                return totalidad;
             }
             else
                 if (id == 2)
@@ -175,6 +131,9 @@ namespace Cristalhelado
                     pregan = Convert.ToDouble(extrae(com1));
                     presfe = Convert.ToDouble(extrae(com));
                     total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                    iva = total * .30;
+                    totalidad = total + iva;
+                    return totalidad;
                 }
                 else
                     if (id == 3)
@@ -183,6 +142,9 @@ namespace Cristalhelado
                         presfe = Convert.ToDouble(extrae(com));
                         precar = Convert.ToDouble(extrae(com2));
                         total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                        iva = total * .30;
+                        totalidad = total + iva;
+                        return totalidad;
                     }
                     else
                         if (id == 4)
@@ -191,6 +153,9 @@ namespace Cristalhelado
                             presfe = Convert.ToDouble(extrae(com));
                             precar = Convert.ToDouble(extrae(com2));
                             total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                            iva = total * .30;
+                            totalidad = total + iva;
+                            return totalidad;
                         }
                         else
                             if (id == 5)
@@ -199,6 +164,9 @@ namespace Cristalhelado
                                 presfe = Convert.ToDouble(extrae(com));
                                 precar = Convert.ToDouble(extrae(com2));
                                 total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                iva = total * .30;
+                                totalidad = total + iva;
+                                return totalidad;
                             }
                             else
                                 if (id == 6)
@@ -207,6 +175,9 @@ namespace Cristalhelado
                                     presfe = Convert.ToDouble(extrae(com));
                                     precar = Convert.ToDouble(extrae(com2));
                                     total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                    iva = total * .30;
+                                    totalidad = total + iva;
+                                    return totalidad;
                                 }
                                 else
                                     if (id == 7)
@@ -215,6 +186,9 @@ namespace Cristalhelado
                                         presfe = Convert.ToDouble(extrae(com));
                                         precar = Convert.ToDouble(extrae(com2));
                                         total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                        iva = total * .30;
+                                        totalidad = total + iva;
+                                        return totalidad;
                                     }
                                     else
                                         if (id == 8)
@@ -223,6 +197,9 @@ namespace Cristalhelado
                                             presfe = Convert.ToDouble(extrae(com));
                                             precar = Convert.ToDouble(extrae(com2));
                                             total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                            iva = total * .30;
+                                            totalidad = total + iva;
+                                            return totalidad;
                                         }
             return total;
         }

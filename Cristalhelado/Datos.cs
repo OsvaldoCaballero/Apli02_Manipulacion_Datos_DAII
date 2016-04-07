@@ -17,8 +17,8 @@ namespace Cristalhelado
 
         static Datos()
         {
-            //conectar = new MySqlConnection("Server=localhost;Database=cristal;Uid=root"); //Conexión Local
-            conectar = new MySqlConnection("Server=db4free.net; Database=cristall; userid=osvaldo; pwd=proyectofinal; port=3306;");
+            conectar = new MySqlConnection("Server=localhost;Database=cristal;Uid=root"); //Conexión Local
+            //conectar = new MySqlConnection("Server=db4free.net; Database=cristall; userid=osvaldo; pwd=proyectofinal; port=3306;");
             try
             {
                 conectar.Open();
@@ -154,9 +154,9 @@ namespace Cristalhelado
             string com1;
             string com2;
             double total = 0;
-            int pregan;
-            int presfe;
-            int precar;
+            double pregan;
+            double presfe;
+            double precar;
 
             com = " Select * From insumo where nombre = '" + color + "' ";
             com1 = " Select * From insumo where nombre = 'gancho' ";
@@ -164,63 +164,64 @@ namespace Cristalhelado
 
             if (id == 1)
             {
-                pregan = Convert.ToInt32(extrae(com1));
-                presfe = Convert.ToInt32(extrae(com));
+                pregan = Convert.ToDouble(extrae(com1));
+                presfe = Convert.ToDouble(extrae(com));
                 total = ((presfe / 300) + (pregan / 700)) * cantidad;
+                return total;
             }
             else
                 if (id == 2)
                 {
-                    pregan = Convert.ToInt32(extrae(com1));
-                    presfe = Convert.ToInt32(extrae(com));
+                    pregan = Convert.ToDouble(extrae(com1));
+                    presfe = Convert.ToDouble(extrae(com));
                     total = ((presfe / 255) + (pregan / 700)) * cantidad;
                 }
                 else
                     if (id == 3)
                     {
-                        pregan = Convert.ToInt32(extrae(com1));
-                        presfe = Convert.ToInt32(extrae(com));
-                        precar = Convert.ToInt32(extrae(com2));
+                        pregan = Convert.ToDouble(extrae(com1));
+                        presfe = Convert.ToDouble(extrae(com));
+                        precar = Convert.ToDouble(extrae(com2));
                         total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
                     }
                     else
                         if (id == 4)
                         {
-                            pregan = Convert.ToInt32(extrae(com1));
-                            presfe = Convert.ToInt32(extrae(com));
-                            precar = Convert.ToInt32(extrae(com2));
+                            pregan = Convert.ToDouble(extrae(com1));
+                            presfe = Convert.ToDouble(extrae(com));
+                            precar = Convert.ToDouble(extrae(com2));
                             total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
                         }
                         else
                             if (id == 5)
                             {
-                                pregan = Convert.ToInt32(extrae(com1));
-                                presfe = Convert.ToInt32(extrae(com));
-                                precar = Convert.ToInt32(extrae(com2));
+                                pregan = Convert.ToDouble(extrae(com1));
+                                presfe = Convert.ToDouble(extrae(com));
+                                precar = Convert.ToDouble(extrae(com2));
                                 total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
                             }
                             else
                                 if (id == 6)
                                 {
-                                    pregan = Convert.ToInt32(extrae(com1));
-                                    presfe = Convert.ToInt32(extrae(com));
-                                    precar = Convert.ToInt32(extrae(com2));
+                                    pregan = Convert.ToDouble(extrae(com1));
+                                    presfe = Convert.ToDouble(extrae(com));
+                                    precar = Convert.ToDouble(extrae(com2));
                                     total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
                                 }
                                 else
                                     if (id == 7)
                                     {
-                                        pregan = Convert.ToInt32(extrae(com1));
-                                        presfe = Convert.ToInt32(extrae(com));
-                                        precar = Convert.ToInt32(extrae(com2));
+                                        pregan = Convert.ToDouble(extrae(com1));
+                                        presfe = Convert.ToDouble(extrae(com));
+                                        precar = Convert.ToDouble(extrae(com2));
                                         total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
                                     }
                                     else
                                         if (id == 8)
                                         {
-                                            pregan = Convert.ToInt32(extrae(com1));
-                                            presfe = Convert.ToInt32(extrae(com));
-                                            precar = Convert.ToInt32(extrae(com2));
+                                            pregan = Convert.ToDouble(extrae(com1));
+                                            presfe = Convert.ToDouble(extrae(com));
+                                            precar = Convert.ToDouble(extrae(com2));
                                             total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
                                         }
             return total;

@@ -55,7 +55,6 @@ namespace Cristalhelado
             lblMontoTotal.Text = acumuladorTotal.ToString();
             try 
             {
-
                 producto.Enqueue(cmbproducto.Text);
                 cantidad.Enqueue(txtcantidad.Text);
                 lstproductos.Items.Add("  " + cmbproducto.Text.ToString() + "                         " + txtcantidad.Text.ToString() + "           " + lbventa.Text + "       " + cmbcolor.Text.ToString() + "         " + total.ToString());
@@ -129,14 +128,16 @@ namespace Cristalhelado
             FACTURA fact = new FACTURA();
             fact.lblEmpleado.Text = cmbempleado.Text;
             fact.lblFecha.Text = dtpfechav.Text;
-            fact.lblProducto.Text = cmbproducto.Text;
             fact.lblTOTALPAGAR.Text = lblMontoTotal.Text;
             fact.lbNombreEmpleado.Text = lbNombre.Text;
-            fact.lblDescripcion.Text = lbventa.Text;
 
-
-            //this.Hide();
-            fact.ShowDialog();
+            for (int i = 0; i <= lstproductos.Items.Count -1; i++)
+            {
+                fact.listBox1.Items.Insert(i, lstproductos.Items[i]);
+            }
+                
+                fact.ShowDialog();
+            
         }
 
         private void cmbempleado_SelectedIndexChanged(object sender, EventArgs e)

@@ -32,3 +32,5 @@ C:\Users\Osvaldo 3A\Documents\GitHub\Apli02_Manipulacion_Datos_DAII\Cristalhelad
 C:\Users\Osvaldo 3A\Documents\GitHub\Apli02_Manipulacion_Datos_DAII\Cristalhelado\obj\x86\Debug\Cristalhelado.frmventa.resources
 C:\Users\Osvaldo 3A\Documents\GitHub\Apli02_Manipulacion_Datos_DAII\Cristalhelado\obj\x86\Debug\Cristalhelado.Properties.Resources.resources
 C:\Users\Osvaldo 3A\Documents\GitHub\Apli02_Manipulacion_Datos_DAII\Cristalhelado\obj\x86\Debug\Cristalhelado.csproj.GenerateResource.Cache
+C:\Users\Osvaldo 3A\Documents\GitHub\Apli02_Manipulacion_Datos_DAII\Cristalhelado\obj\x86\Debug\Cristalhelado.Factura.resources
+C:\Users\Osvaldo 3A\Documents\GitHub\Apli02_Manipulacion_Datos_DAII\Cristalhelado\bin\Debug\Cristalhelado.exe.config

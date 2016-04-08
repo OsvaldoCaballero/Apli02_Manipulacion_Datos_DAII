@@ -56,6 +56,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblMontoTotal = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lbNombre = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -89,6 +92,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.cmbcolor);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
@@ -133,7 +138,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(296, 160);
+            this.label10.Location = new System.Drawing.Point(431, 160);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 16;
@@ -142,7 +147,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(215, 160);
+            this.label9.Location = new System.Drawing.Point(189, 160);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 15;
@@ -196,12 +201,12 @@
             this.lstproductos.FormattingEnabled = true;
             this.lstproductos.Location = new System.Drawing.Point(114, 176);
             this.lstproductos.Name = "lstproductos";
-            this.lstproductos.Size = new System.Drawing.Size(272, 121);
+            this.lstproductos.Size = new System.Drawing.Size(386, 121);
             this.lstproductos.TabIndex = 5;
             // 
             // btnproducto
             // 
-            this.btnproducto.Location = new System.Drawing.Point(9, 211);
+            this.btnproducto.Location = new System.Drawing.Point(9, 221);
             this.btnproducto.Name = "btnproducto";
             this.btnproducto.Size = new System.Drawing.Size(99, 23);
             this.btnproducto.TabIndex = 4;
@@ -223,8 +228,9 @@
             this.cmbempleado.FormattingEnabled = true;
             this.cmbempleado.Location = new System.Drawing.Point(93, 16);
             this.cmbempleado.Name = "cmbempleado";
-            this.cmbempleado.Size = new System.Drawing.Size(61, 21);
+            this.cmbempleado.Size = new System.Drawing.Size(48, 21);
             this.cmbempleado.TabIndex = 5;
+            this.cmbempleado.SelectedIndexChanged += new System.EventHandler(this.cmbempleado_SelectedIndexChanged);
             // 
             // dtpfechav
             // 
@@ -323,12 +329,40 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "$";
             // 
+            // lbNombre
+            // 
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Location = new System.Drawing.Point(158, 24);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(13, 13);
+            this.lbNombre.TabIndex = 20;
+            this.lbNombre.Text = "--";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(253, 160);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "Descripción";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(357, 160);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(31, 13);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Color";
+            // 
             // frmventa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(885, 474);
+            this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lblMontoTotal);
             this.Controls.Add(this.button1);
@@ -360,10 +394,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lstproductos;
-        private System.Windows.Forms.Button btnproducto;
         private System.Windows.Forms.ComboBox cmbproducto;
         private System.Windows.Forms.ComboBox cmbempleado;
         private System.Windows.Forms.DateTimePicker dtpfechav;
@@ -375,13 +407,18 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbprecio;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbcolor;
-        private System.Windows.Forms.Label lblMontoTotal;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Button btnproducto;
+        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label lblMontoTotal;
+        private System.Windows.Forms.TextBox txtcantidad;
+        private System.Windows.Forms.Label lbNombre;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

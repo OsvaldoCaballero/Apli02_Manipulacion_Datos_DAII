@@ -58,14 +58,13 @@ namespace Cristalhelado
 
                 producto.Enqueue(cmbproducto.Text);
                 cantidad.Enqueue(txtcantidad.Text);
-                lstproductos.Items.Add("    " + cmbproducto.Text.ToString() + "                                   " + txtcantidad.Text.ToString() + "               " + total.ToString());
+                lstproductos.Items.Add("  " + cmbproducto.Text.ToString() + "                         " + txtcantidad.Text.ToString() + "           " + lbventa.Text + "       " + cmbcolor.Text.ToString() + "         " + total.ToString());
             }
             catch (Exception)
             {
                 MessageBox.Show("Error intenta de nuevo");
             }
-
-            txtcantidad.Clear();
+            //txtcantidad.Clear();
         }
 
         private void btnregistrar_Click(object sender, EventArgs e)
@@ -127,7 +126,28 @@ namespace Cristalhelado
 
         private void button1_Click(object sender, EventArgs e)
         {
+            FACTURA fact = new FACTURA();
+            fact.lblEmpleado.Text = cmbempleado.Text;
+            fact.lblFecha.Text = dtpfechav.Text;
+            fact.lblProducto.Text = cmbproducto.Text;
+            fact.lblTOTALPAGAR.Text = lblMontoTotal.Text;
+            fact.lbNombreEmpleado.Text = lbNombre.Text;
+            fact.lblDescripcion.Text = lbventa.Text;
 
+
+            //this.Hide();
+            fact.ShowDialog();
+        }
+
+        private void cmbempleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MySqlDataAdapter de = Datos.construye_adapter("select * from empleado where id ='" + cmbempleado.Text + "'");
+            DataRow dte = Datos.extrae_registro(de, "empleado");
+
+            if (dte != null)
+            {
+                lbNombre.Text = dte["nombre"].ToString();
+            }
         }
     }//fin de clase
 }

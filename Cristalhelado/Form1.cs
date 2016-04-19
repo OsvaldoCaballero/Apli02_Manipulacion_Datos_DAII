@@ -29,17 +29,38 @@ namespace Cristalhelado
 
         private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MostrarFormulario(new frmventa());
+            this.menuStrip1.Enabled = false;
+            frmventa formuhijo = new frmventa ();
+            formuhijo.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            formuhijo.Show();
+
+            //MostrarFormulario(new frmventa());
         }
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MostrarFormulario(new frmconsulta());
+            this.menuStrip1.Enabled = false;
+            frmconsulta formuhijo = new frmconsulta();
+            formuhijo.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            formuhijo.Show();
+
+            //MostrarFormulario(new frmconsulta());
+        }
+
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.menuStrip1.Enabled = true;
+
         }
 
         private void compraInsumosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MostrarFormulario(new frminsumos());
+            this.menuStrip1.Enabled = false;
+            frminsumos formuhijo = new frminsumos();
+            formuhijo.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            formuhijo.Show();
+
+            //MostrarFormulario(new frminsumos());
         }
     }//fin de clase
 }

@@ -12,11 +12,12 @@ namespace Cristalhelado
     {
         private static MySqlConnection conectar;
         private static MySqlDataReader dr;
+        public static double totalventa;
 
         static Datos()
         {
-            //conectar = new MySqlConnection("Server=localhost;Database=cristal;Uid=root"); //Conexión Local
-            conectar = new MySqlConnection("Server=db4free.net; Database=cristall; userid=osvaldo; pwd=proyectofinal; port=3306;");
+            //conectar = new MySqlConnection("Server=localhost;Database=c+ristal23;Uid=root"); //Conexión Local
+            conectar = new MySqlConnection("Server=db4free.net; Database=cristalll; userid=osvaldoutp; pwd=proyectoarturo; port=3306;");
             try
             {
                 conectar.Open();
@@ -26,6 +27,28 @@ namespace Cristalhelado
             {
                 MessageBox.Show("No se pudo conectar a la base de datos " + ex);
             }
+        }
+
+
+
+
+
+        //********************************************BORRAR***********************************************
+
+        public static bool Login(string nombre, string password)
+        {
+            string consulta = "SELECT count(*) FROM user WHERE user = @Nombre AND password = MD5(@Password)";
+            MySqlCommand comando = new MySqlCommand(consulta, conectar);
+            comando.Parameters.Add("@Nombre", MySqlDbType.VarChar);
+            comando.Parameters["@Nombre"].Value = nombre;
+            comando.Parameters.Add("@Password", MySqlDbType.VarChar);
+            comando.Parameters["@Password"].Value = password;
+            int resultado = Convert.ToInt32(comando.ExecuteScalar());
+
+            if (resultado == 1)
+                return true;
+            else
+                return false;
         }
 
         public static void Insertar(string cadena)
@@ -40,6 +63,17 @@ namespace Cristalhelado
             comando.ExecuteNonQuery();
         }
 
+
+        //********************************************************
+        public static void Delete(string consulta)
+        {
+            MySqlCommand comando = new MySqlCommand(consulta, conectar);
+            comando.ExecuteNonQuery();
+        }
+        //****************************************************
+
+
+
         public static void BuscarDato(string busqueda, DataGridView dg)
         {
             DataTable tabla = new DataTable();
@@ -48,12 +82,41 @@ namespace Cristalhelado
             dg.DataSource = tabla;
         }
 
+
+        //***************************************************
+
+        public static bool Validar(int id, string password)
+        {
+            string consulta = "SELECT count(*) FROM user WHERE id_usuario = @Id AND password = MD5(@Password)";
+            MySqlCommand comando = new MySqlCommand(consulta, conectar);
+            comando.Parameters.Add("@Id", MySqlDbType.Int32);
+            comando.Parameters["@Id"].Value = id;
+            comando.Parameters.Add("@Password", MySqlDbType.VarChar);
+            comando.Parameters["@Password"].Value = password;
+            int resultado = Convert.ToInt32(comando.ExecuteScalar());
+
+            if (resultado == 1)
+                return true;
+            else
+                return false;
+        }
+
+        //***************************************************
+
+
         public static void ObtenerTabla(string consulta, DataGridView dg)
         {
-            DataTable tabla = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(consulta, conectar);
-            da.Fill(tabla);
-            dg.DataSource = tabla;
+            try
+            {
+                DataTable tabla = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(consulta, conectar);
+                da.Fill(tabla);
+                dg.DataSource = tabla;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
         public static MySqlDataAdapter construye_adapter(string cadena)
@@ -97,9 +160,13 @@ namespace Cristalhelado
 
         }
 
+        //***************************************************************
 
 
 
+        //****************************************************************
+
+        /*************************************************************************/
         public static double TotalPagar(int cantidad, string color, int id)
         {
             string com;
@@ -112,7 +179,7 @@ namespace Cristalhelado
             double presfe;
             double precar;
 
-            com = " Select * From insumo where nombre = '" + color + "' ";
+            com = " Select * From insumo where nombre = '" + color + "'";
             com1 = " Select * From insumo where nombre = 'gancho' ";
             com2 = " Select * From insumo where nombre = 'carton' ";
 
@@ -201,9 +268,733 @@ namespace Cristalhelado
                                             totalidad = total + iva;
                                             return totalidad;
                                         }
+                                        else
+                                            if (id == 9)
+                                            {
+                                                pregan = Convert.ToDouble(extrae(com1));
+                                                presfe = Convert.ToDouble(extrae(com));
+                                                total = ((presfe / 300) + (pregan / 700)) * cantidad;
+                                                iva = total * .30;
+                                                totalidad = total + iva;
+                                                return totalidad;
+                                            }
+                                            else
+                                                if (id == 10)
+                                                {
+                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                    presfe = Convert.ToDouble(extrae(com));
+                                                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                                                    iva = total * .30;
+                                                    totalidad = total + iva;
+                                                    return totalidad;
+                                                }
+                                                else
+                                                    if (id == 11)
+                                                    {
+                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                        presfe = Convert.ToDouble(extrae(com));
+                                                        precar = Convert.ToDouble(extrae(com2));
+                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                        iva = total * .30;
+                                                        totalidad = total + iva;
+                                                        return totalidad;
+                                                    }
+                                                    else
+                                                        if (id == 12)
+                                                        {
+                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                            presfe = Convert.ToDouble(extrae(com));
+                                                            precar = Convert.ToDouble(extrae(com2));
+                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                            iva = total * .30;
+                                                            totalidad = total + iva;
+                                                            return totalidad;
+                                                        }
+                                                        else
+                                                            if (id == 13)
+                                                            {
+                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                precar = Convert.ToDouble(extrae(com2));
+                                                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                iva = total * .30;
+                                                                totalidad = total + iva;
+                                                                return totalidad;
+                                                            }
+                                                            else
+                                                                if (id == 14)
+                                                                {
+                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                    precar = Convert.ToDouble(extrae(com2));
+                                                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                    iva = total * .30;
+                                                                    totalidad = total + iva;
+                                                                    return totalidad;
+                                                                }
+                                                                else
+                                                                    if (id == 15)
+                                                                    {
+                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                        iva = total * .30;
+                                                                        totalidad = total + iva;
+                                                                        return totalidad;
+                                                                    }
+                                                                    else
+                                                                        if (id == 16)
+                                                                        {
+                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                            iva = total * .30;
+                                                                            totalidad = total + iva;
+                                                                            return totalidad;
+                                                                        }
+                                                                            else
+                                                                            if (id == 17)
+                                                                            {
+                                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                                total = ((presfe / 300) + (pregan / 700)) * cantidad;
+                                                                                iva = total * .30;
+                                                                                totalidad = total + iva;
+                                                                                return totalidad;
+                                                                            }
+                                                                            else
+                                                                                if (id == 18)
+                                                                                {
+                                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                                                                                    iva = total * .30;
+                                                                                    totalidad = total + iva;
+                                                                                    return totalidad;
+                                                                                }
+                                                                                else
+                                                                                    if (id == 19)
+                                                                                    {
+                                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                                                        iva = total * .30;
+                                                                                        totalidad = total + iva;
+                                                                                        return totalidad;
+                                                                                    }
+                                                                                    else
+                                                                                        if (id == 20)
+                                                                                        {
+                                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                                                            iva = total * .30;
+                                                                                            totalidad = total + iva;
+                                                                                            return totalidad;
+                                                                                        }
+                                                                                        else
+                                                                                            if (id == 21)
+                                                                                            {
+                                                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                                                precar = Convert.ToDouble(extrae(com2));
+                                                                                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                                                iva = total * .30;
+                                                                                                totalidad = total + iva;
+                                                                                                return totalidad;
+                                                                                            }
+                                                                                            else
+                                                                                                if (id == 22)
+                                                                                                {
+                                                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                                                    precar = Convert.ToDouble(extrae(com2));
+                                                                                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                                                    iva = total * .30;
+                                                                                                    totalidad = total + iva;
+                                                                                                    return totalidad;
+                                                                                                }
+                                                                                                else
+                                                                                                    if (id == 23)
+                                                                                                    {
+                                                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                                                        iva = total * .30;
+                                                                                                        totalidad = total + iva;
+                                                                                                        return totalidad;
+                                                                                                    }
+                                                                                                    else
+                                                                                                        if (id == 24)
+                                                                                                        {
+                                                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                                                            iva = total * .30;
+                                                                                                            totalidad = total + iva;
+                                                                                                            return totalidad;
+                                                                                                        }
+            return totalidad;
+        }
+            
+        public static double IVA(int cantidad, string color, int id)
+        {
+            string com;
+            string com1;
+            string com2;
+            double total = 0;
+            double iva = 0;
+            double totalidad = 0;
+            double pregan;
+            double presfe;
+            double precar;
+        
+            com = " Select * From insumo where nombre = '" + color + "'";
+            com1 = " Select * From insumo where nombre = 'gancho' ";
+            com2 = " Select * From insumo where nombre = 'carton' ";
+
+            if (id == 1)
+            {
+                pregan = Convert.ToDouble(extrae(com1));
+                presfe = Convert.ToDouble(extrae(com));
+                total = ((presfe / 300) + (pregan / 700)) *cantidad;
+                iva = total * .30;
+                totalidad = total + iva;
+                return iva;
+            }
+            else
+                if (id == 2)
+                {
+                    pregan = Convert.ToDouble(extrae(com1));
+                    presfe = Convert.ToDouble(extrae(com));
+                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                    iva = total * .30;
+                    totalidad = total + iva;
+                    return iva;
+                }
+                else
+                    if (id == 3)
+                    {
+                        pregan = Convert.ToDouble(extrae(com1));
+                        presfe = Convert.ToDouble(extrae(com));
+                        precar = Convert.ToDouble(extrae(com2));
+                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                        iva = total * .30;
+                        totalidad = total + iva;
+                        return iva;
+                    }
+                    else
+                        if (id == 4)
+                        {
+                            pregan = Convert.ToDouble(extrae(com1));
+                            presfe = Convert.ToDouble(extrae(com));
+                            precar = Convert.ToDouble(extrae(com2));
+                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                            iva = total * .30;
+                            totalidad = total + iva;
+                            return iva;
+                        }
+                        else
+                            if (id == 5)
+                            {
+                                pregan = Convert.ToDouble(extrae(com1));
+                                presfe = Convert.ToDouble(extrae(com));
+                                precar = Convert.ToDouble(extrae(com2));
+                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                iva = total * .30;
+                                totalidad = total + iva;
+                                return iva;
+                            }
+                            else
+                                if (id == 6)
+                                {
+                                    pregan = Convert.ToDouble(extrae(com1));
+                                    presfe = Convert.ToDouble(extrae(com));
+                                    precar = Convert.ToDouble(extrae(com2));
+                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                    iva = total * .30;
+                                    totalidad = total + iva;
+                                    return iva;
+                                }
+                                else
+                                    if (id == 7)
+                                    {
+                                        pregan = Convert.ToDouble(extrae(com1));
+                                        presfe = Convert.ToDouble(extrae(com));
+                                        precar = Convert.ToDouble(extrae(com2));
+                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                        iva = total * .30;
+                                        totalidad = total + iva;
+                                        return iva;
+                                    }
+                                    else
+                                        if (id == 8)
+                                        {
+                                            pregan = Convert.ToDouble(extrae(com1));
+                                            presfe = Convert.ToDouble(extrae(com));
+                                            precar = Convert.ToDouble(extrae(com2));
+                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                            iva = total * .30;
+                                            totalidad = total + iva;
+                                            return iva;
+                                        }
+                                        else
+                                            if (id == 9)
+                                            {
+                                                pregan = Convert.ToDouble(extrae(com1));
+                                                presfe = Convert.ToDouble(extrae(com));
+                                                total = ((presfe / 300) + (pregan / 700)) * cantidad;
+                                                iva = total * .30;
+                                                totalidad = total + iva;
+                                                return iva;
+                                            }
+                                            else
+                                                if (id == 10)
+                                                {
+                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                    presfe = Convert.ToDouble(extrae(com));
+                                                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                                                    iva = total * .30;
+                                                    totalidad = total + iva;
+                                                    return iva;
+                                                }
+                                                else
+                                                    if (id == 11)
+                                                    {
+                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                        presfe = Convert.ToDouble(extrae(com));
+                                                        precar = Convert.ToDouble(extrae(com2));
+                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                        iva = total * .30;
+                                                        totalidad = total + iva;
+                                                        return iva;
+                                                    }
+                                                    else
+                                                        if (id == 12)
+                                                        {
+                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                            presfe = Convert.ToDouble(extrae(com));
+                                                            precar = Convert.ToDouble(extrae(com2));
+                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                            iva = total * .30;
+                                                            totalidad = total + iva;
+                                                            return iva;
+                                                        }
+                                                        else
+                                                            if (id == 13)
+                                                            {
+                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                precar = Convert.ToDouble(extrae(com2));
+                                                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                iva = total * .30;
+                                                                totalidad = total + iva;
+                                                                return iva;
+                                                            }
+                                                            else
+                                                                if (id == 14)
+                                                                {
+                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                    precar = Convert.ToDouble(extrae(com2));
+                                                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                    iva = total * .30;
+                                                                    totalidad = total + iva;
+                                                                    return iva;
+                                                                }
+                                                                else
+                                                                    if (id == 15)
+                                                                    {
+                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                        iva = total * .30;
+                                                                        totalidad = total + iva;
+                                                                        return iva;
+                                                                    }
+                                                                    else
+                                                                        if (id == 16)
+                                                                        {
+                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                            iva = total * .30;
+                                                                            totalidad = total + iva;
+                                                                            return iva;
+                                                                        }
+                                                                            else
+                                                                            if (id == 17)
+                                                                            {
+                                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                                total = ((presfe / 300) + (pregan / 700)) * cantidad;
+                                                                                iva = total * .30;
+                                                                                totalidad = total + iva;
+                                                                                return iva;
+                                                                            }
+                                                                            else
+                                                                                if (id == 18)
+                                                                                {
+                                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                                                                                    iva = total * .30;
+                                                                                    totalidad = total + iva;
+                                                                                    return iva;
+                                                                                }
+                                                                                else
+                                                                                    if (id == 19)
+                                                                                    {
+                                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                                                        iva = total * .30;
+                                                                                        totalidad = total + iva;
+                                                                                        return iva;
+                                                                                    }
+                                                                                    else
+                                                                                        if (id == 20)
+                                                                                        {
+                                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                                                            iva = total * .30;
+                                                                                            totalidad = total + iva;
+                                                                                            return iva;
+                                                                                        }
+                                                                                        else
+                                                                                            if (id == 21)
+                                                                                            {
+                                                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                                                precar = Convert.ToDouble(extrae(com2));
+                                                                                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                                                iva = total * .30;
+                                                                                                totalidad = total + iva;
+                                                                                                return iva;
+                                                                                            }
+                                                                                            else
+                                                                                                if (id == 22)
+                                                                                                {
+                                                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                                                    precar = Convert.ToDouble(extrae(com2));
+                                                                                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                                                    iva = total * .30;
+                                                                                                    totalidad = total + iva;
+                                                                                                    return iva;
+                                                                                                }
+                                                                                                else
+                                                                                                    if (id == 23)
+                                                                                                    {
+                                                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                                                        iva = total * .30;
+                                                                                                        totalidad = total + iva;
+                                                                                                        return iva;
+                                                                                                    }
+                                                                                                    else
+                                                                                                        if (id == 24)
+                                                                                                        {
+                                                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                                                            iva = total * .30;
+                                                                                                            totalidad = total + iva;
+                                                                                                            return iva;
+                                                                                                        }
+            return iva;
+        }
+               
+        public static double PRECIONORMAL(int cantidad, string color, int id)
+        {
+            string com;
+            string com1;
+            string com2;
+            double total = 0;
+            double iva = 0;
+            double totalidad = 0;
+            double pregan;
+            double presfe;
+            double precar;
+
+            com = " Select * From insumo where nombre = '" + color + "'";
+            com1 = " Select * From insumo where nombre = 'gancho' ";
+            com2 = " Select * From insumo where nombre = 'carton' ";
+
+            if (id == 1)
+            {
+                pregan = Convert.ToDouble(extrae(com1));
+                presfe = Convert.ToDouble(extrae(com));
+                total = ((presfe / 300) + (pregan / 700)) *cantidad;
+                iva = total * .30;
+                totalidad = total + iva;
+                return total;
+            }
+            else
+                if (id == 2)
+                {
+                    pregan = Convert.ToDouble(extrae(com1));
+                    presfe = Convert.ToDouble(extrae(com));
+                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                    iva = total * .30;
+                    totalidad = total + iva;
+                    return total;
+                }
+                else
+                    if (id == 3)
+                    {
+                        pregan = Convert.ToDouble(extrae(com1));
+                        presfe = Convert.ToDouble(extrae(com));
+                        precar = Convert.ToDouble(extrae(com2));
+                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                        iva = total * .30;
+                        totalidad = total + iva;
+                        return total;
+                    }
+                    else
+                        if (id == 4)
+                        {
+                            pregan = Convert.ToDouble(extrae(com1));
+                            presfe = Convert.ToDouble(extrae(com));
+                            precar = Convert.ToDouble(extrae(com2));
+                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                            iva = total * .30;
+                            totalidad = total + iva;
+                            return total;
+                        }
+                        else
+                            if (id == 5)
+                            {
+                                pregan = Convert.ToDouble(extrae(com1));
+                                presfe = Convert.ToDouble(extrae(com));
+                                precar = Convert.ToDouble(extrae(com2));
+                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                iva = total * .30;
+                                totalidad = total + iva;
+                                return total;
+                            }
+                            else
+                                if (id == 6)
+                                {
+                                    pregan = Convert.ToDouble(extrae(com1));
+                                    presfe = Convert.ToDouble(extrae(com));
+                                    precar = Convert.ToDouble(extrae(com2));
+                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                    iva = total * .30;
+                                    totalidad = total + iva;
+                                    return total;
+                                }
+                                else
+                                    if (id == 7)
+                                    {
+                                        pregan = Convert.ToDouble(extrae(com1));
+                                        presfe = Convert.ToDouble(extrae(com));
+                                        precar = Convert.ToDouble(extrae(com2));
+                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                        iva = total * .30;
+                                        totalidad = total + iva;
+                                        return total;
+                                    }
+                                    else
+                                        if (id == 8)
+                                        {
+                                            pregan = Convert.ToDouble(extrae(com1));
+                                            presfe = Convert.ToDouble(extrae(com));
+                                            precar = Convert.ToDouble(extrae(com2));
+                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                            iva = total * .30;
+                                            totalidad = total + iva;
+                                            return total;
+                                        }
+                                        else
+                                            if (id == 9)
+                                            {
+                                                pregan = Convert.ToDouble(extrae(com1));
+                                                presfe = Convert.ToDouble(extrae(com));
+                                                total = ((presfe / 300) + (pregan / 700)) * cantidad;
+                                                iva = total * .30;
+                                                totalidad = total + iva;
+                                                return total;
+                                            }
+                                            else
+                                                if (id == 10)
+                                                {
+                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                    presfe = Convert.ToDouble(extrae(com));
+                                                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                                                    iva = total * .30;
+                                                    totalidad = total + iva;
+                                                    return total;
+                                                }
+                                                else
+                                                    if (id == 11)
+                                                    {
+                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                        presfe = Convert.ToDouble(extrae(com));
+                                                        precar = Convert.ToDouble(extrae(com2));
+                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                        iva = total * .30;
+                                                        totalidad = total + iva;
+                                                        return total;
+                                                    }
+                                                    else
+                                                        if (id == 12)
+                                                        {
+                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                            presfe = Convert.ToDouble(extrae(com));
+                                                            precar = Convert.ToDouble(extrae(com2));
+                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                            iva = total * .30;
+                                                            totalidad = total + iva;
+                                                            return total;
+                                                        }
+                                                        else
+                                                            if (id == 13)
+                                                            {
+                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                precar = Convert.ToDouble(extrae(com2));
+                                                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                iva = total * .30;
+                                                                totalidad = total + iva;
+                                                                return total;
+                                                            }
+                                                            else
+                                                                if (id == 14)
+                                                                {
+                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                    precar = Convert.ToDouble(extrae(com2));
+                                                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                    iva = total * .30;
+                                                                    totalidad = total + iva;
+                                                                    return total;
+                                                                }
+                                                                else
+                                                                    if (id == 15)
+                                                                    {
+                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                        iva = total * .30;
+                                                                        totalidad = total + iva;
+                                                                        return total;
+                                                                    }
+                                                                    else
+                                                                        if (id == 16)
+                                                                        {
+                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                            iva = total * .30;
+                                                                            totalidad = total + iva;
+                                                                            return total;
+                                                                        }
+                                                                            else
+                                                                            if (id == 17)
+                                                                            {
+                                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                                total = ((presfe / 300) + (pregan / 700)) * cantidad;
+                                                                                iva = total * .30;
+                                                                                totalidad = total + iva;
+                                                                                return total;
+                                                                            }
+                                                                            else
+                                                                                if (id == 18)
+                                                                                {
+                                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                                    total = ((presfe / 255) + (pregan / 700)) * cantidad;
+                                                                                    iva = total * .30;
+                                                                                    totalidad = total + iva;
+                                                                                    return total;
+                                                                                }
+                                                                                else
+                                                                                    if (id == 19)
+                                                                                    {
+                                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                                                        iva = total * .30;
+                                                                                        totalidad = total + iva;
+                                                                                        return total;
+                                                                                    }
+                                                                                    else
+                                                                                        if (id == 20)
+                                                                                        {
+                                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 30)) * cantidad;
+                                                                                            iva = total * .30;
+                                                                                            totalidad = total + iva;
+                                                                                            return total;
+                                                                                        }
+                                                                                        else
+                                                                                            if (id == 21)
+                                                                                            {
+                                                                                                pregan = Convert.ToDouble(extrae(com1));
+                                                                                                presfe = Convert.ToDouble(extrae(com));
+                                                                                                precar = Convert.ToDouble(extrae(com2));
+                                                                                                total = ((presfe / 300) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                                                iva = total * .30;
+                                                                                                totalidad = total + iva;
+                                                                                                return total;
+                                                                                            }
+                                                                                            else
+                                                                                                if (id == 22)
+                                                                                                {
+                                                                                                    pregan = Convert.ToDouble(extrae(com1));
+                                                                                                    presfe = Convert.ToDouble(extrae(com));
+                                                                                                    precar = Convert.ToDouble(extrae(com2));
+                                                                                                    total = ((presfe / 255) + (pregan / 700) + (precar / 20)) * cantidad;
+                                                                                                    iva = total * .30;
+                                                                                                    totalidad = total + iva;
+                                                                                                    return total;
+                                                                                                }
+                                                                                                else
+                                                                                                    if (id == 23)
+                                                                                                    {
+                                                                                                        pregan = Convert.ToDouble(extrae(com1));
+                                                                                                        presfe = Convert.ToDouble(extrae(com));
+                                                                                                        precar = Convert.ToDouble(extrae(com2));
+                                                                                                        total = ((presfe / 300) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                                                        iva = total * .30;
+                                                                                                        totalidad = total + iva;
+                                                                                                        return total;
+                                                                                                    }
+                                                                                                    else
+                                                                                                        if (id == 24)
+                                                                                                        {
+                                                                                                            pregan = Convert.ToDouble(extrae(com1));
+                                                                                                            presfe = Convert.ToDouble(extrae(com));
+                                                                                                            precar = Convert.ToDouble(extrae(com2));
+                                                                                                            total = ((presfe / 255) + (pregan / 700) + (precar / 15)) * cantidad;
+                                                                                                            iva = total * .30;
+                                                                                                            totalidad = total + iva;
+                                                                                                            return total;
+                                                                                                        }
             return total;
         }
-
+                
         public static string extrae(string cadena)
         {
             MySqlDataAdapter da = construye_adapter(cadena);
@@ -217,12 +1008,6 @@ namespace Cristalhelado
             }
             return idv1;
         }
-
-
-
-
-
-
 
         public static MySqlDataReader construye_reader(string cadena)
         {

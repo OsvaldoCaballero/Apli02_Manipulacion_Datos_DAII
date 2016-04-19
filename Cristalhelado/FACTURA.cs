@@ -25,5 +25,10 @@ namespace Cristalhelado
         {
             Close();
         }
+
+        private void FACTURA_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

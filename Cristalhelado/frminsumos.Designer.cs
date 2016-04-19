@@ -34,11 +34,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnagregar = new System.Windows.Forms.Button();
-            this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.txtcantidad = new System.Windows.Forms.TextBox();
             this.dtpfechainsu = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbInsumos = new System.Windows.Forms.ComboBox();
+            this.btnINSUMOACTUALIZAR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,20 +81,13 @@
             // 
             // btnagregar
             // 
-            this.btnagregar.Location = new System.Drawing.Point(118, 239);
+            this.btnagregar.Location = new System.Drawing.Point(12, 227);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(117, 23);
             this.btnagregar.TabIndex = 5;
             this.btnagregar.Text = "Agregar";
             this.btnagregar.UseVisualStyleBackColor = true;
             this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
-            // 
-            // txtnombre
-            // 
-            this.txtnombre.Location = new System.Drawing.Point(172, 27);
-            this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(100, 20);
-            this.txtnombre.TabIndex = 6;
             // 
             // txtprecio
             // 
@@ -128,17 +122,42 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // cmbInsumos
+            // 
+            this.cmbInsumos.FormattingEnabled = true;
+            this.cmbInsumos.Items.AddRange(new object[] {
+            "Dorada",
+            "Plateada",
+            "Roja",
+            "Gancho",
+            "Cartón"});
+            this.cmbInsumos.Location = new System.Drawing.Point(151, 30);
+            this.cmbInsumos.Name = "cmbInsumos";
+            this.cmbInsumos.Size = new System.Drawing.Size(121, 21);
+            this.cmbInsumos.TabIndex = 12;
+            // 
+            // btnINSUMOACTUALIZAR
+            // 
+            this.btnINSUMOACTUALIZAR.Location = new System.Drawing.Point(155, 227);
+            this.btnINSUMOACTUALIZAR.Name = "btnINSUMOACTUALIZAR";
+            this.btnINSUMOACTUALIZAR.Size = new System.Drawing.Size(117, 23);
+            this.btnINSUMOACTUALIZAR.TabIndex = 13;
+            this.btnINSUMOACTUALIZAR.Text = "Eliminar";
+            this.btnINSUMOACTUALIZAR.UseVisualStyleBackColor = true;
+            this.btnINSUMOACTUALIZAR.Click += new System.EventHandler(this.btnINSUMOACTUALIZAR_Click);
+            // 
             // frminsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(652, 297);
+            this.Controls.Add(this.btnINSUMOACTUALIZAR);
+            this.Controls.Add(this.cmbInsumos);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dtpfechainsu);
             this.Controls.Add(this.txtcantidad);
             this.Controls.Add(this.txtprecio);
-            this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -160,10 +179,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnagregar;
-        private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.TextBox txtprecio;
         private System.Windows.Forms.TextBox txtcantidad;
         private System.Windows.Forms.DateTimePicker dtpfechainsu;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmbInsumos;
+        private System.Windows.Forms.Button btnINSUMOACTUALIZAR;
     }
 }

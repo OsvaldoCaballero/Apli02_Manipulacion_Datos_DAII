@@ -18,7 +18,7 @@ namespace Cristalhelado
 
         private void btnagregar_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text != "" && txtprecio.Text != "" && txtcantidad.Text != "")
+            if (cmbInsumos.Text != "" && txtprecio.Text != "" && txtcantidad.Text != "")
             {
                 string cadena = "";
                 
@@ -27,12 +27,12 @@ namespace Cristalhelado
                 {
                     try
                     {
-                        cadena = "INSERT INTO insumo (nombre, fecha, precio, cantidad) values ('" + txtnombre.Text +
+                        cadena = "INSERT INTO insumo (nombre, fecha, precio, cantidad) values ('" + cmbInsumos.Text +
                             "', '" + dtpfechainsu.Text + "', '" + txtprecio.Text + "', '" + txtcantidad.Text + "')";
 
                         Datos.Insertar(cadena);
                         MessageBox.Show("Registro agregado");
-                        txtnombre.Clear();
+                        cmbInsumos.ResetText();
                         txtprecio.Clear();
                         txtcantidad.Clear();
                     }
@@ -51,6 +51,75 @@ namespace Cristalhelado
         private void frminsumos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnINSUMOACTUALIZAR_Click(object sender, EventArgs e)
+        {
+            if (cmbInsumos.Text != "")
+            {
+                string cadena = "";
+
+                if (MessageBox.Show("¿Estás seguro de querer eliminar este registro?", "Cristal Helado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                    DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (cmbInsumos.SelectedIndex == 0)
+                        {
+                            cadena = "DELETE FROM insumo where nombre = 'Dorada'";
+
+                            Datos.Insertar(cadena);
+                            MessageBox.Show("Eliminación exitosa");
+                            cmbInsumos.ResetText();
+                        }
+                        else
+                            if (cmbInsumos.SelectedIndex == 1)
+                            {
+                                cadena = "DELETE FROM insumo where nombre = 'Plateada'";
+
+                                Datos.Insertar(cadena);
+                                MessageBox.Show("Eliminación exitosa");
+                                cmbInsumos.ResetText();
+                            }
+                            else
+                                if (cmbInsumos.SelectedIndex == 2)
+                                {
+                                    cadena = "DELETE FROM insumo where nombre = 'Roja'";
+
+                                    Datos.Insertar(cadena);
+                                    MessageBox.Show("Eliminación exitosa");
+                                    cmbInsumos.ResetText();
+                                }
+                                else
+                                    if (cmbInsumos.SelectedIndex == 3)
+                                    {
+                                        cadena = "DELETE FROM insumo where nombre = 'Gancho'";
+
+                                        Datos.Insertar(cadena);
+                                        MessageBox.Show("Eliminación exitosa");
+                                        cmbInsumos.ResetText();
+                                    }
+                                    else
+                                        if (cmbInsumos.SelectedIndex == 4)
+                                        {
+                                            cadena = "DELETE FROM insumo where nombre = 'Cartón'";
+
+                                            Datos.Insertar(cadena);
+                                            MessageBox.Show("Eliminación exitosa");
+                                            cmbInsumos.ResetText();
+                                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error al eliminar el registro");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debes llenar todos los campos");
+            }
+            
         }
     }//fin de clase
 }

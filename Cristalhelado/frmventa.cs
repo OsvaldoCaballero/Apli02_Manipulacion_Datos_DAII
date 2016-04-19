@@ -65,7 +65,6 @@ namespace Cristalhelado
 
             lblIVA.Text = acumuladorIva.ToString();
             lblPRECIONORMAL.Text = acumuladorNormal.ToString();
-            //lbprecio.Text = total.ToString();
             lblMontoTotal.Text = acumuladorTotal.ToString();
             try 
             {
@@ -78,7 +77,6 @@ namespace Cristalhelado
             {
                 MessageBox.Show("Error intenta de nuevo");
             }
-            //txtcantidad.Clear();
         }
 
         private void btnregistrar_Click(object sender, EventArgs e)

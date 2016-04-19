@@ -33,8 +33,6 @@ namespace Cristalhelado
             frmventa formuhijo = new frmventa ();
             formuhijo.FormClosing += new FormClosingEventHandler(form_FormClosing);
             formuhijo.Show();
-
-            //MostrarFormulario(new frmventa());
         }
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,14 +41,11 @@ namespace Cristalhelado
             frmconsulta formuhijo = new frmconsulta();
             formuhijo.FormClosing += new FormClosingEventHandler(form_FormClosing);
             formuhijo.Show();
-
-            //MostrarFormulario(new frmconsulta());
         }
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.menuStrip1.Enabled = true;
-
         }
 
         private void compraInsumosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,8 +54,6 @@ namespace Cristalhelado
             frminsumos formuhijo = new frminsumos();
             formuhijo.FormClosing += new FormClosingEventHandler(form_FormClosing);
             formuhijo.Show();
-
-            //MostrarFormulario(new frminsumos());
         }
     }//fin de clase
 }

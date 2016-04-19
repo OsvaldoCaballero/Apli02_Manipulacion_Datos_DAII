@@ -29,28 +29,6 @@ namespace Cristalhelado
             }
         }
 
-
-
-
-
-        //********************************************BORRAR***********************************************
-
-        public static bool Login(string nombre, string password)
-        {
-            string consulta = "SELECT count(*) FROM user WHERE user = @Nombre AND password = MD5(@Password)";
-            MySqlCommand comando = new MySqlCommand(consulta, conectar);
-            comando.Parameters.Add("@Nombre", MySqlDbType.VarChar);
-            comando.Parameters["@Nombre"].Value = nombre;
-            comando.Parameters.Add("@Password", MySqlDbType.VarChar);
-            comando.Parameters["@Password"].Value = password;
-            int resultado = Convert.ToInt32(comando.ExecuteScalar());
-
-            if (resultado == 1)
-                return true;
-            else
-                return false;
-        }
-
         public static void Insertar(string cadena)
         {
             MySqlCommand comando = new MySqlCommand(cadena, conectar);
@@ -63,17 +41,6 @@ namespace Cristalhelado
             comando.ExecuteNonQuery();
         }
 
-
-        //********************************************************
-        public static void Delete(string consulta)
-        {
-            MySqlCommand comando = new MySqlCommand(consulta, conectar);
-            comando.ExecuteNonQuery();
-        }
-        //****************************************************
-
-
-
         public static void BuscarDato(string busqueda, DataGridView dg)
         {
             DataTable tabla = new DataTable();
@@ -81,28 +48,6 @@ namespace Cristalhelado
             da.Fill(tabla);
             dg.DataSource = tabla;
         }
-
-
-        //***************************************************
-
-        public static bool Validar(int id, string password)
-        {
-            string consulta = "SELECT count(*) FROM user WHERE id_usuario = @Id AND password = MD5(@Password)";
-            MySqlCommand comando = new MySqlCommand(consulta, conectar);
-            comando.Parameters.Add("@Id", MySqlDbType.Int32);
-            comando.Parameters["@Id"].Value = id;
-            comando.Parameters.Add("@Password", MySqlDbType.VarChar);
-            comando.Parameters["@Password"].Value = password;
-            int resultado = Convert.ToInt32(comando.ExecuteScalar());
-
-            if (resultado == 1)
-                return true;
-            else
-                return false;
-        }
-
-        //***************************************************
-
 
         public static void ObtenerTabla(string consulta, DataGridView dg)
         {
@@ -160,13 +105,6 @@ namespace Cristalhelado
 
         }
 
-        //***************************************************************
-
-
-
-        //****************************************************************
-
-        /*************************************************************************/
         public static double TotalPagar(int cantidad, string color, int id)
         {
             string com;
